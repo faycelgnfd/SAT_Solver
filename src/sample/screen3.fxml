@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="450.0" prefWidth="655.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane prefHeight="447.0" prefWidth="649.0">
+            <children>
+                <AnchorPane layoutX="393.0" prefHeight="450.0" prefWidth="270.0" style="-fx-background-color: silver;">
+                    <children>
+                        <Label layoutX="100.0" layoutY="35.0" text="Résultat">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font></Label>
+                        <TreeTableView layoutX="31.0" layoutY="101.0" prefHeight="284.0" prefWidth="214.0">
+                            <columns>
+                                <TreeTableColumn prefWidth="132.4000244140625" text="Résultat" />
+                                <TreeTableColumn text="Temps" />
+                            </columns>
+                        </TreeTableView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="450.0" prefWidth="399.0" style="-fx-background-color: dark blue;">
+                    <children>
+                        <Label layoutX="120.0" layoutY="35.0" text="Configuration">
+                            <font>
+                                <Font name="Open Sans Bold" size="16.0" />
+                            </font></Label>
+                        <Label layoutX="47.0" layoutY="88.0" text="Fichier">
+                            <font>
+                                <Font size="13.0" />
+                            </font></Label>
+                        <Label layoutX="142.0" layoutY="189.0" text="Contenu du fichier">
+                            <font>
+                                <Font name="Open Sans" size="13.0" />
+                            </font></Label>
+                        <Button layoutX="271.0" layoutY="416.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Valider" />
+                        <Button fx:id="FileBtn" layoutX="279.0" layoutY="85.0" mnemonicParsing="false" onAction="#FileFct" prefHeight="25.0" prefWidth="77.0" text="Fichier" />
+                        <TextField fx:id="fich" depthTest="DISABLE" disable="true" layoutX="136.0" layoutY="85.0" prefHeight="25.0" prefWidth="124.0" />
+                        <TextArea fx:id="fcont" layoutX="39.0" layoutY="225.0" prefHeight="177.0" prefWidth="318.0" />
+                  <ChoiceBox fx:id="methods" layoutX="136.0" layoutY="137.0" prefHeight="25.0" prefWidth="220.0" />
+                  <Label layoutX="47.0" layoutY="141.0" text="Heuristique" />
+                    </children></AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>

@@ -1,33 +1,46 @@
 package sample;
 
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-
-import java.awt.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Tab;
+import javafx.scene.layout.AnchorPane;
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Controller0 implements Serializable {
+public class Controller0 implements Serializable { //controller du l'interface qui gere les interfaces
+
     @javafx.fxml.FXML
-    @FXML
-    private BorderPane mainPane;
+    Tab tab1;
 
+    @javafx.fxml.FXML
+    Tab tab2;
 
-    public void handleBtn1(javafx.event.ActionEvent actionEvent) {
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("screen1");
-        mainPane.setCenter(view);
+    public void initialize(URL location, ResourceBundle resources)
+    {
+
+        FXMLLoader loader = new FXMLLoader();
+        try
+        {
+            AnchorPane anch1 = loader.load(getClass().getResource("screen1.fxml"));
+            tab1.setContent(anch1);
+        }
+        catch(IOException iex)
+        {
+            System.out.println("File not found");
+        }
+        loader = new FXMLLoader();
+        try
+        {
+            AnchorPane anch2 = loader.load(getClass().getResource("screen2.fxml"));
+            tab2.setContent(anch2);
+        }
+        catch(IOException iex)
+        {
+            System.out.println("File not found");
+        }
+
     }
 
 
-    public void handleBtn3(javafx.event.ActionEvent actionEvent) {
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("screen3");
-        mainPane.setCenter(view);
-    }
-
-    public void handleBtn2(javafx.event.ActionEvent actionEvent) {
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("screen2");
-        mainPane.setCenter(view);
-    }
 }

@@ -1,58 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller0">
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.Controller0"
+            prefHeight="400.0" prefWidth="600.0">
     <children>
-        <BorderPane fx:id="mainPane" prefHeight="401.0" prefWidth="600.0">
-            <left>
-                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#handleBtn1" text="Largeur">
-                            <VBox.margin>
-                                <Insets left="10.0" top="30.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#handleBtn2" prefHeight="30.0" prefWidth="104.0" text="Profondeur">
-                            <VBox.margin>
-                                <Insets left="10.0" top="30.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#handleBtn3" text="sarra's truc">
-                            <VBox.margin>
-                                <Insets left="10.0" top="30.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Button mnemonicParsing="false" text="partie2">
-                            <VBox.margin>
-                                <Insets left="10.0" top="30.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                    </children>
-                </VBox>
-            </left>
-         <center>
-            <Label text="VEUILLEZ CHOISIR VOTRE METHODE. #NOICE" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-         </center>
-        </BorderPane>
+        <TabPane>
+            <Tab fx:id="tab1" text="Largeur d'abord">
+                <fx:include source="screen1.fxml"/>
+            </Tab>
+            <Tab fx:id="tab2" text="Profondeur d'abord">
+                <fx:include source="screen2.fxml"/>
+            </Tab>
+            <Tab fx:id="tab3" text="Algorithme A*">
+                <fx:include source="screen3.fxml"/>
+            </Tab>
+            <Tab fx:id="tab4" text="Heuristique">
+            </Tab>
+        </TabPane>
     </children>
 </AnchorPane>

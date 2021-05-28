@@ -2,9 +2,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.LinkedList;
 
+
 public class A_star {
 
-
+    private LinkedList<noeud> ouverte;
+    private LinkedList<noeud> ferme;
+    private noeud racine;
+    // SARRA LAKSACI
     public String benchmark;
     public int heuristique1(int i,LinkedList<String> clauses){
         /* CETTE HEURISTIQUE h(x) CALCULE LE NOMBRE DE CLAUSES OU X APPARET */

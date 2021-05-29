@@ -11,6 +11,7 @@ public class A_star {
     public LinkedList<String> benchmark; // contient les clauses du benchmark introduit
     private LinkedList<Integer> not_sat; // vecteur initialisé à 0 pour exprimer non-sat des clauses puis toute clause satisfaire sera mise a 1
     private noeud racine;
+    ArrayList<Integer> solution;
     // SARRA LAKSACI
 
 
@@ -21,6 +22,7 @@ public class A_star {
         benchmark=new LinkedList<>();
         benchmark=benchmark_content(path);
         benchmark=delete_exta_lines(benchmark);
+        solution=new ArrayList<Integer>();
         racine =new noeud();
         for (int i=0;i<325;i++){
             not_sat.set(i,0);
@@ -47,7 +49,7 @@ public class A_star {
 
     public int heuristique3(){     int x;  x=3;   return x;  }
 
-    public void algorithme(noeud racine){
+    public boolean algorithme(noeud racine){
         int num=1;
         ouverte.add(racine);
         while (ouverte.size()>0)
@@ -57,8 +59,9 @@ public class A_star {
           if (liste.size()>0) {
               ouverte.addAll(liste); // insérer les successeurs dans ouverte
                     ordonner_ouverte(ouverte); // ordoner ouverte selon f
-                    verif_succes(n.getFils());
-          }}}
+                    boolean succes= verif_succes(n.getFils());
+                    if(succes){ solution= SolutionRetourArriere(n); return true;}
+          }}} return false;
 
         //
     }
@@ -102,13 +105,15 @@ public class A_star {
         return cpt;
     }
 
-    public void verif_succes (LinkedList<noeud> liste){
+    public boolean verif_succes (LinkedList<noeud> liste){
+        boolean flag=false;
         for (noeud n : liste){
             int verif= nbr_clauses_SAT(n.getDecision());
-            if(verif==325){ ArrayList<Integer> solution= SolutionRetourArriere(n); }
+            if(verif==325){ flag=true; }
         }
+        return flag;
     }
-    
+
     public ArrayList<Integer> SolutionRetourArriere(noeud n){
         ArrayList<Integer> solution = new ArrayList<>(75);
         noeud avant=n;

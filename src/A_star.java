@@ -105,9 +105,10 @@ public class A_star {
     public void verif_succes (LinkedList<noeud> liste){
         for (noeud n : liste){
             int verif= nbr_clauses_SAT(n.getDecision());
-            if(verif==325){  }
+            if(verif==325){ ArrayList<Integer> solution= SolutionRetourArriere(n); }
         }
     }
+    
     public ArrayList<Integer> SolutionRetourArriere(noeud n){
         ArrayList<Integer> solution = new ArrayList<>(75);
         noeud avant=n;
@@ -119,6 +120,7 @@ public class A_star {
         }
         return solution;
     }
+
     public LinkedList<String> benchmark_content( String lien){
         /* CETTE FONCTION RETOURNE LES CLAUSES DU FICHIER DANS UNE LISTE DE CHAINES */
         LinkedList <String> list= new LinkedList<>();

@@ -12,23 +12,28 @@
         <RowConstraints />
     </rowConstraints>
     <children>
-        <AnchorPane prefHeight="500.0" prefWidth="690.0">
+        <AnchorPane prefHeight="520.0" prefWidth="700.0">
             <children>
-                <AnchorPane layoutX="410.0" prefHeight="500.0" prefWidth="290.0" style="-fx-background-color: silver;">
+                <AnchorPane layoutX="410.0" prefHeight="520.0" prefWidth="290.0" style="-fx-background-color: silver;">
                     <children>
                         <Label layoutX="120.0" layoutY="40.0" text="Résultat">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font></Label>
-                        <TreeTableView layoutX="30.0" layoutY="90.0" prefHeight="350.0" prefWidth="230.0">
+                        <TreeTableView layoutX="30.0" layoutY="90.0" prefHeight="321.0" prefWidth="230.0">
                             <columns>
-                                <TreeTableColumn prefWidth="132.4000244140625" text="Résultat" />
-                                <TreeTableColumn prefWidth="96.0" text="Temps" />
+                                <TreeTableColumn prefWidth="228.80001831054688" text="Résultat" />
                             </columns>
                         </TreeTableView>
+                  <Label layoutX="30.0" layoutY="439.0" text="Temps d'exécution" textFill="#000000ae">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField depthTest="DISABLE" disable="true" layoutX="160.0" layoutY="436.0" prefHeight="25.0" prefWidth="100.0" />
                     </children>
                 </AnchorPane>
-                <AnchorPane prefHeight="500.0" prefWidth="410.0" style="-fx-background-color: dark blue;">
+                <AnchorPane prefHeight="520.0" prefWidth="410.0" style="-fx-background-color: dark blue;">
                     <children>
                         <Label layoutX="140.0" layoutY="40.0" text="Configuration">
                             <font>
@@ -38,7 +43,7 @@
                             <font>
                                 <Font size="13.0" />
                             </font></Label>
-                        <Label layoutX="142.0" layoutY="205.0" text="Contenu du fichier">
+                        <Label layoutX="188.0" layoutY="205.0" text="Trace">
                             <font>
                                 <Font name="Open Sans" size="13.0" />
                             </font></Label>

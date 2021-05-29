@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -12,17 +8,13 @@
             prefHeight="400.0" prefWidth="600.0">
     <children>
         <TabPane>
-            <Tab fx:id="tab1" text="Largeur d'abord">
+            <Tab fx:id="tab1" text="Méthodes Aveugles">
                 <fx:include source="screen1.fxml"/>
-            </Tab>
-            <Tab fx:id="tab2" text="Profondeur d'abord">
-                <fx:include source="screen2.fxml"/>
             </Tab>
             <Tab fx:id="tab3" text="Algorithme A*">
                 <fx:include source="screen3.fxml"/>
             </Tab>
-            <Tab fx:id="tab4" text="Heuristique">
-            </Tab>
+
         </TabPane>
     </children>
 </AnchorPane>

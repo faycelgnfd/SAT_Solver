@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.Controller0"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TabPane>
+            <Tab fx:id="tab1" text="Méthodes Aveugles">
+                <fx:include source="screen1.fxml"/>
+            </Tab>
+            <Tab fx:id="tab3" text="Algorithme A*">
+                <fx:include source="screen3.fxml"/>
+            </Tab>
+
+        </TabPane>
+    </children>
+</AnchorPane>

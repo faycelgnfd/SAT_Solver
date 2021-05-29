@@ -3,6 +3,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+// SARRA LAKSACI
+
 
 public class A_star {
 
@@ -12,7 +14,6 @@ public class A_star {
     private LinkedList<Integer> not_sat; // vecteur initialisé à 0 pour exprimer non-sat des clauses puis toute clause satisfaire sera mise a 1
     private noeud racine;
     ArrayList<Integer> solution;
-    // SARRA LAKSACI
 
 
     public A_star(String path){
@@ -58,7 +59,7 @@ public class A_star {
          LinkedList<noeud> liste = creer_fils(n,num); // créer les successeurs
           if (liste.size()>0) {
               ouverte.addAll(liste); // insérer les successeurs dans ouverte
-                    ordonner_ouverte(ouverte); // ordoner ouverte selon f
+                    ordonner_ouverte(ouverte,0,ouverte.size()); // ordoner ouverte selon f
                     boolean succes= verif_succes(n.getFils());
                     if(succes){ solution= SolutionRetourArriere(n); return true;}
           }}} return false;
@@ -85,14 +86,42 @@ public class A_star {
     }
 
 
-
-    public LinkedList<noeud> ordonner_ouverte(LinkedList<noeud> o)  {
-        int x,y;
-        if(o.size()==1){return o;}
-        else{
-            int i = 0;
-        }return (o);
+    // tri fusion
+    public void ordonner_ouverte(LinkedList<noeud> o,int l,int r)  {
+        int mid;
+        if(r>l){
+            mid=l+(r-l)/2;
+            ordonner_ouverte(o,l,mid);
+            ordonner_ouverte(o,mid+1,r);
+            merge(o,l,mid,r);
+        }
     }
+    public void merge(LinkedList<noeud> o,int l,int m,int r){
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        ArrayList<noeud> L=new ArrayList<>(n1);
+        ArrayList<noeud> R=new ArrayList<>(n1);
+
+        for (int i = 0; i < n1; i++)
+            L.set(i, o.get(l + i));
+        for (int j = 0; j < n2; j++)
+            R.set(j, o.get(m + 1 + j));
+
+        int i = 0;
+        int j = 0;
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L.get(i).getF() <= R.get(j).getF()) { o.set(k, L.get(i));    i++;  }
+            else {  o.set(k, R.get(j));    j++; }
+            k++;    }
+
+        while (i < n1) { o.set(k, L.get(i));  i++;  k++;  }
+        while (j < n2) { o.set(k, R.get(j));  j++;  k++;  }
+    }
+
+
+
 
     public int nbr_clauses_SAT (int decision){
         String litteral= String.valueOf(decision);

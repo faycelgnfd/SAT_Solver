@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+// SARRA LAKSACI
+
 public class noeud {
 
-    // SARRA LAKSACI
+
     private int f;
     private int h;
     private int g;
